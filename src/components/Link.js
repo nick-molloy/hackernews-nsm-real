@@ -13,11 +13,13 @@ const VOTE_MUTATION = gql`
           id
           user {
             id
+            group
           }
         }
       }
       user {
         id
+        group
       }
     }
   }
@@ -60,6 +62,9 @@ class Link extends Component {
   {/* below ternary operator check if any votes, shows last voter */}
             {this.props.link.votes[0] 
               ? ' ____ vote ids: first '+this.props.link.votes[0].id + ' last ' + this.props.link.votes[this.props.link.votes.length - 1].id
+              : ' '}
+            {this.props.link.votes[0] 
+              ? ' group: ' + this.props.link.postedBy.group
               : ' '}
           </div>
         </div>
