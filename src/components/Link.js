@@ -14,12 +14,14 @@ const VOTE_MUTATION = gql`
           user {
             id
             group
+            phone
           }
         }
       }
       user {
         id
         group
+        phone
       }
     }
   }
@@ -65,6 +67,9 @@ class Link extends Component {
               : ' '}
             {this.props.link.votes[0] 
               ? ' group: ' + this.props.link.postedBy.group
+              : ' '}
+            {this.props.link.votes[0] 
+              ? ' phone #: ' + this.props.link.postedBy.phone
               : ' '}
           </div>
         </div>

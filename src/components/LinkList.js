@@ -20,6 +20,7 @@ export const FEED_QUERY = gql`
           id
           name
           group
+          phone
         }
         votes {
           id
