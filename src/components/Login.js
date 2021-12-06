@@ -23,7 +23,7 @@ class Login extends Component {
     login: true, // switch between Login and SignUp
     email: '',
     password: '',
-    name: '',
+    name: ''
   }
 
   render() {
@@ -32,13 +32,14 @@ class Login extends Component {
       <div>
         <h4 className="mv3">{login ? 'Login' : 'Sign Up'}</h4>
         <div className="flex flex-column">
-          {!login && (
+          {!login && (<div>
             <input
               value={name}
               onChange={e => this.setState({ name: e.target.value })}
               type="text"
               placeholder="Your name"
-            />
+            /> 
+            </div>
           )}
           <input
             value={email}
@@ -52,6 +53,7 @@ class Login extends Component {
             type="password"
             placeholder="Choose a safe password"
           />
+          
         </div>
             <div className="flex mt3">
             <Mutation
