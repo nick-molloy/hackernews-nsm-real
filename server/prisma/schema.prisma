@@ -1,5 +1,5 @@
 datasource db {
-  provider = "sqlite" 
+  provider = "sqlite"
   url      = "file:./dev.db"
 }
 
@@ -15,7 +15,15 @@ model Link {
   postedBy    User     @relation(fields: [postedById], references: [id])
   postedById  Int
   votes       Vote[]
-  tag         String @default("fun")
+  tag         String   @default("fun")
+}
+
+model Faq {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  description String
+  postedBy    User     @relation(fields: [postedById], references: [id])
+  postedById  Int
 }
 
 model User {
@@ -25,6 +33,7 @@ model User {
   password String
   links    Link[]
   votes    Vote[]
+  Faq      Faq[]
 }
 
 model Vote {

@@ -11,7 +11,9 @@ type Query {
 type Feed {
   id: ID!
   links: [Link!]!
+  users: [User!]!
   count: Int!
+  faq: [Faq!]!
 }
 
 type Mutation {
@@ -42,14 +44,21 @@ type User {
   links: [Link!]!
 }
 
+type Faq {
+  id: ID!
+  description: String!
+  postedBy: User
+  createdAt: DateTime!
+}
+
 type Link {
   id: ID!
   description: String!
   url: String!
+  tag: String
   postedBy: User
   votes: [Vote!]!
   createdAt: DateTime!
-  tag: String
 }
 
 type Vote {

@@ -30,21 +30,7 @@ class Link extends Component {
       <div className="flex mt2 items-start">
         <div className="flex items-center">
   <span className="gray">{this.props.index + 1}.</span>
-  {authToken && (
-    <Mutation
-    mutation={VOTE_MUTATION}
-    variables={{ linkId: this.props.link.id }}
-    update={(store, { data: { vote } }) =>
-      this.props.updateStoreAfterVote(store, vote, this.props.link.id)
-    }
-    >
-    {voteMutation => (
-      <div className="ml1 gray f11" onClick={voteMutation}>
-        😎🤪💂🏽‍♀️
-      </div>
-    )}
-    </Mutation>  
-  )}
+  
 </div>
 
         <div className="ml1">
@@ -52,7 +38,7 @@ class Link extends Component {
           <a href={this.props.link.url} target="_blank">{this.props.link.description}</a>
           </div>
           <div className="f6 lh-copy gray">
-            {this.props.link.votes.length} votes | by{' '}
+            by{' '}
             {this.props.link.postedBy
               ? this.props.link.postedBy.name
               : 'Unknown'}{' '}
@@ -61,7 +47,7 @@ class Link extends Component {
             
           </div>
         </div>
-      </div>
+      </div>     
     )
   }
   
