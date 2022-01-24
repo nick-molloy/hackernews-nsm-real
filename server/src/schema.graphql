@@ -13,7 +13,7 @@ type Feed {
   links: [Link!]!
   users: [User!]!
   count: Int!
-  faq: [Faq!]!
+  faqs: [Faq!]!
 }
 
 type Mutation {
@@ -25,6 +25,7 @@ type Mutation {
   ): AuthPayload
   login(email: String!, password: String!): AuthPayload
   vote(linkId: ID!): Vote
+  faq(url: String!, description: String!, tag: String): Faq!
 }
 
 type Subscription {
@@ -42,11 +43,14 @@ type User {
   name: String!
   email: String!
   links: [Link!]!
+  faqs: [Faq!]!
 }
 
 type Faq {
   id: ID!
   description: String!
+  url: String!
+  tag: String
   postedBy: User
   createdAt: DateTime!
 }
